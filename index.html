@@ -1,0 +1,408 @@
+<html>
+<head>
+<title>
+Ice cream shop
+ 
+</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid black;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid black;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+// Developed by http://grohit.com/
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: Hack, monospace;
+}
+
+div {
+  color: #727272;
+  text-align: center;
+}
+
+p {
+  margin: 16px;
+  font-size: 96px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 1s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+nav {
+position:sticky;
+  margin:0px;
+  background: #f9f9f9;
+  padding: 4px;
+  .menuItems {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 20px;
+	  cursor:pointer;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #8254ff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+// Developed by http://grohit.com/
+footer {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  color: #000000;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom: 1px transparent;
+    }
+  }
+}
+
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+  max-width: 1170px;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul{
+  list-style: none;
+}
+.footer{
+  background-color:lightblue;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+  font-size: 18px;
+  color: black;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color:black;
+  text-decoration: none;
+  font-weight: 300;
+  color:black;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: black;
+  transition: all 0.5s ease;
+}
+
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 30%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+</style>
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor:pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:pink;
+  min-width: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 4px 3px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body style="background-image: url('https://tse2.explicit.bing.net/th?id=OIP.qWEc89dzq5Vc2K_HcwrfZgHaEJ&pid=Api&P=0&h=180');">
+ <nav>
+    <ul class="menuItems" style="background-color:#f8ff9b;background-image: url('https://cdn.britannica.com/50/80550-050-5D392AC7/Scoops-kinds-ice-cream.jpg');">
+	 <li><img src="https://tse1.mm.bing.net/th?id=OIP.4-rWJglxHNERLtnj9QiWOAHaHa&pid=Api&P=0&h=180" height="50px" width="60px" ></li>
+	 <br>
+	  <li><a style="color:aqua;"><href='' data-item=''><b>SCOOPATACULAR</b></a></li>
+      <li><a href='index.html' data-item=''>Home</a></li>
+      <li><a href='about1.html' data-item=''>Login</a></li>
+	  <div class="dropdown">
+	  <li><a href='shop.html' data-item='' ><span>Shopkart</span></a></li>
+  <div class="dropdown-content">
+  <h3><a href="https://minus30.co/pages/all-products" style="color:black;">𝓖𝓮𝓵𝓪𝓽𝓸</a></h3>
+  <h3><a href="https://www.biggerbolderbaking.com/soft-serve-ice-cream/" style="color:black;">𝓢𝓸𝓯𝓽𝓼𝓮𝓻𝓿𝓮</a></h3>
+  <h3><a href="https://www.tasteatlas.com/sorbetes" style="color:black;">𝓢𝓸𝓻𝓫𝓮𝓽𝓮𝓼</a></h3>
+  <h3><a href="https://www.tasteatlas.com/dondurma---turkish-ice-cream-that-doesnt-melt" style="color:black;">𝓓𝓸𝓷𝓭𝓾𝓻𝓶𝓪</a></h3>
+  <h3><a href="https://cookingconnexions.com/2019/05/23/i-tim-pad/" style="color:black;">𝓘 𝓽𝓲𝓶 𝓹𝓪𝓭</a></h3>
+  <h3><a href="https://www.internationaldessertsblog.com/german-spaghetti-ice-cream-homemade-spaghettieis-recipe/" style="color:black;">𝓢𝓹𝓪𝓰𝓱𝓮𝓽𝓽𝓲𝓮𝓲𝓼</a></h3>
+  </div>
+  </div>
+      <li><a href='form.html' data-item=''>Feedback</a></li>
+      <li><a href='contact.html' data-item=''>Contact</a></li>
+	
+    </ul>
+  </nav>
+  <br>
+  <br>
+<video width="100%"height="50%" autoplay align="center">
+  <source src="cream.mp4" type="video/mp4">
+  <source src="cream.ogg" type="video/ogg">
+</video>
+<br>
+<br>
+<h1 style="background-color:lightgreen;" align="center">Types of icecream<h1>
+<br>
+<br>
+<marquee>
+<div class="gallery">
+  <a target="_blank" href="https://www.tasteofhome.com/wp-content/uploads/2018/01/EXPS_35621_TH1195008D7_RMS-2.jpg">
+    <img src="https://www.tasteofhome.com/wp-content/uploads/2018/01/EXPS_35621_TH1195008D7_RMS-2.jpg"  width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Gelato<br>(Italy)</h6></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://www.tasteofhome.com/wp-content/uploads/2020/10/soft-serve-ice-cream-cone-1011538714.jpg">
+    <img src="https://www.tasteofhome.com/wp-content/uploads/2020/10/soft-serve-ice-cream-cone-1011538714.jpg" width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Soft serve<br>(New york)</h6></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://1.bp.blogspot.com/-x6SNDHKJ2NA/UqHvbrgPI3I/AAAAAAAAB1s/gSHP-FKeXiE/s1600/Blog+1.JPG">
+    <img src="https://1.bp.blogspot.com/-x6SNDHKJ2NA/UqHvbrgPI3I/AAAAAAAAB1s/gSHP-FKeXiE/s1600/Blog+1.JPG"  width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Sorbetes<br>(Phillipines)</h6></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://www.giverecipe.com/wp-content/uploads/2014/05/Turkish-salep-ice-cream.jpg">
+    <img src="https://www.giverecipe.com/wp-content/uploads/2014/05/Turkish-salep-ice-cream.jpg"  width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Dondurma<br>(Turkey)</h6></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="https://images.squarespace-cdn.com/content/v1/559cbba3e4b0e8026eae4b1e/1619291156216-3TVCWF54JRM9QZSGYG29/IMG_6456.jpg">
+    <img src="https://images.squarespace-cdn.com/content/v1/559cbba3e4b0e8026eae4b1e/1619291156216-3TVCWF54JRM9QZSGYG29/IMG_6456.jpg" width="600" height="400">
+  </a>
+  <div class="desc"style="color:black;background-color:white;"><h6>I tim pad<br>(Thailand)</h6></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="https://dirndlkitchen.com/wp-content/uploads/2023/06/spaghetti-eis-ice-cream-recipe-dirndl-kitchen1.jpg">
+    <img src="https://dirndlkitchen.com/wp-content/uploads/2023/06/spaghetti-eis-ice-cream-recipe-dirndl-kitchen1.jpg"width="600" height="400">
+  </a>
+  <div class="desc"style="color:black;background-color:white;"><h6>Spaghettieis<br>(Germany)</h6></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="http://images.foodmento.com/U848P3060F14669-1408244604-169.jpg">
+    <img src="http://images.foodmento.com/U848P3060F14669-1408244604-169.jpg" width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Halvah<br>(Middle east)</h6></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/12fb29e2-0b71-4eee-b72f-a6f470cb5309/d56n29g-98fdf32a-a5ae-4d9f-8aa3-3bff6917af4e.jpg">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/12fb29e2-0b71-4eee-b72f-a6f470cb5309/d56n29g-98fdf32a-a5ae-4d9f-8aa3-3bff6917af4e.jpg" width="600" height="400">
+  </a>
+  <div class="desc" style="color:black;background-color:white;"><h6>Paletas<br>(Mexico)</h6></div>
+</div>
+
+</marquee>
+
+<footer class="footer">
+     <div class="container">
+      <div class="row">
+        <div class="footer-col">
+		
+          <h4>Scoopatacular</h4>
+          <ul>
+            <li><a href="https://www.scooptacular.net/">about us</a></li>
+            <li><a href="https://finditinlaveen.com/contact-us/">our services</a></li>
+            <li><a href="https://finditinlaveen.com/privacy-policy/">privacy policy</a></li>
+            <li><a href="https://www.yelp.com/biz/scooptacular-arcadia-phoenix">Flavours</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get scoops</h4>
+          <ul>
+            <li><a href="https://www.eatsure.com/">Eatsure</a></li>
+            <li><a href="https://www.zomato.com/india">Zomato</a></li>
+            <li><a href="https://www.swiggy.com/">Swiggy</a></li>
+            <li><a href="https://www.ubereats.com/">Uber eats</a></li>
+            <li><a href="https://pay.google.com/intl/en_in/about/">payment options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Flavours</h4>
+          <ul>
+            <li><a href="#">Gelato</a></li>
+            <li><a href="#">I tim pad</a></li>
+            <li><a href="#">Glace</a></li>
+            <li><a href="#">Pelatas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/Scooptacular/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+			<iframe width="360" height="215" src="https://www.youtube.com/embed/413H5tRc7I8?si=C2nktxT6IgS50LEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</iframe>
+          </div>
+        </div>
+      </div>
+     </div>
+  </footer>
+
+
+
+</body>
+</html>

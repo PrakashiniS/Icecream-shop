@@ -1,0 +1,239 @@
+<html>
+<title>
+Login
+ 
+</title>
+<body>
+<link rel="stylesheet" 
+          href="style.css">
+</body>
+<style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f77fbe;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #1ed4d6;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #1bdee0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+// Developed by http://grohit.com/
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: Hack, monospace;
+}
+
+div {
+  color: #727272;
+  text-align: center;
+}
+
+p {
+  margin: 16px;
+  font-size: 96px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 1s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+nav {
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 4px;
+  .menuItems {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 20px;
+
+      a {
+        text-decoration: none;
+        color: #8f8f8f;
+        font-size: 24px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #8254ff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+// Developed by http://grohit.com/
+footer {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  color: #000000;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom: 1px transparent;
+    }
+  }
+}
+</style>
+<body style="background-image: url('https://tse2.mm.bing.net/th?id=OIP.wRpGl0PF8l9DrEYfBk2U9QHaE8&pid=Api&P=0&h=180');">
+ <nav>
+    <ul class="menuItems" style="background-color:#f8ff9b;">
+	 <li><img src="https://tse1.mm.bing.net/th?id=OIP.4-rWJglxHNERLtnj9QiWOAHaHa&pid=Api&P=0&h=180" height="50%" width="50%" ></li>
+      <li><a href='index.html' data-item=''>Home</a></li>
+      <li><a href='about1.html' data-item=''>Login</a></li>
+      <li><a href='shop.html' data-item=''>Shopkart</a></li>
+      <li><a href='form.html' data-item=''>Feedback</a></li>
+      <li><a href='contact.html' data-item=''>Contact</a></li>
+	
+    </ul>
+  </nav>
+ <div class="main">
+        <h1>Scoopatacular</h1>
+        <h3>Enter your login credentials</h3>
+        <form action="">
+            <label for="first">
+                  Username:
+              </label>
+            <input type="text" 
+                   id="first"
+                   name="first" 
+                   placeholder="Enter your Username" required>
+
+            <label for="password">
+                  Password:
+              </label>
+            <input type="password"
+                   id="password" 
+                   name="password" 
+                   placeholder="Enter your Password" required>
+
+            <div class="wrap">
+                <button type="submit"
+                        onclick="solve()">
+                    <a href="index.html">Submit</a>
+                </button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

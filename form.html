@@ -1,0 +1,293 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" 
+          content="width=device-width,initial-scale=1.0"> 
+    <title>Feedback</title> 
+    <link rel="stylesheet" href= 
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link rel="stylesheet" href="index.css"> 
+</head> 
+<style>
+/*style.css */
+@import url( 
+'https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+body { 
+	margin: 0; 
+	display: flex; 
+	align-items: center; 
+	justify-content: space-around; 
+	flex-direction: column; 
+	height: 100vh; 
+	background-color:#f77fbe; 
+	font-family: 'Poppins', sans-serif; 
+
+} 
+
+.textup { 
+	text-align: center; 
+	color:#1bdee0; 
+	font-weight: 700; 
+} 
+
+i { 
+	margin-right: 3px; 
+} 
+
+.form-box { 
+	background-color: #fff; 
+	box-shadow: 0 0 10px rgba(36, 67, 40, 0.8); 
+	padding: 15px; 
+	border-radius: 8px; 
+	width: 500px; 
+} 
+
+form { 
+	max-width: 400px; 
+	margin: 0 auto; 
+} 
+
+.radio-group { 
+	display: flex; 
+	margin-bottom: 16px; 
+} 
+
+input[type="radio"] { 
+	margin-right: 8px; 
+} 
+
+label { 
+	display: block; 
+	margin-bottom: 8px; 
+	font-size: 17px; 
+	color: green; 
+	font-weight: 600; 
+} 
+
+input, 
+textarea { 
+	width: 100%; 
+	padding: 8px; 
+	margin-bottom: 12px; 
+	box-sizing: border-box; 
+	border-radius: 10px; 
+
+} 
+
+button { 
+	background-color: #1bdee0; 
+	color: #fff; 
+	padding: 10px; 
+	border: none; 
+	border-radius: 25px; 
+	cursor: pointer; 
+	width: 100%; 
+	font-size: 15px; 
+	transition: .2s linear; 
+} 
+
+button:hover { 
+	background-color:#1bdee0; 
+	border: none; 
+	transform: translateY(-10px); 
+} 
+
+h1 { 
+	color: green; 
+}
+
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+// Developed by http://grohit.com/
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: Hack, monospace;
+}
+
+div {
+  color: #727272;
+  text-align: center;
+}
+
+p {
+  margin: 16px;
+  font-size: 96px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 1s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+nav {
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 4px;
+  .menuItems {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 20px;
+
+      a {
+        text-decoration: none;
+        color: #8f8f8f;
+        font-size: 24px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #8254ff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+// Developed by http://grohit.com/
+footer {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  color: #000000;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom: 1px transparent;
+    }
+  }
+}
+
+</style>
+  
+<body style="background-image: url('https://tse4.mm.bing.net/th?id=OIP.V998ToqPuFQwm_2D4ZdUvQHaFW&pid=Api&P=0&h=180');"> 
+<nav>
+    <ul class="menuItems" style="background-color:#f8ff9b;">
+	 <li><img src="https://tse1.mm.bing.net/th?id=OIP.4-rWJglxHNERLtnj9QiWOAHaHa&pid=Api&P=0&h=180" height="50%" width="50%" ></li>
+      <li><a href='index.html' data-item=''>Home</a></li>
+      <li><a href='about1.html' data-item=''>Login</a></li>
+      <li><a href='shop.html' data-item=''>Shopkart</a></li>
+      <li><a href='form.html' data-item=''>Feedback</a></li>
+      <li><a href='contact.html' data-item=''>Contact</a></li>
+	
+    </ul>
+  </nav>
+    <h1 style="color:purple;background-color:white;">Scoopatacular</h1> 
+ 
+    <div class="form-box"> 
+        <div class="textup"> 
+            <i class="fa fa-solid fa-clock"></i> 
+            It only takes two minutes!! 
+        </div> 
+        <form> 
+            <label for="uname" style="color:#1bdee0;"> 
+                <i class="fa fa-solid fa-user"></i> 
+                Name 
+            </label> 
+            <input type="text" id="uname" 
+                   name="uname" required> 
+  
+            <label for="email"  style="color:#1bdee0;"> 
+                <i class="fa fa-solid fa-envelope"></i> 
+                Email Address 
+            </label> 
+            <input type="email" id="email" 
+                   name="email" required> 
+  
+            <label for="phone"  style="color:#1bdee0;"> 
+                <i class="fa-solid fa-phone"></i> 
+                Phone No 
+            </label> 
+            <input type="tel" id="phone" 
+                   name="phone" required> 
+  
+            <label  style="color:#1bdee0;"> 
+                <i class="fa-solid fa-face-smile"></i> 
+                Do you satisfy with our service? 
+            </label> 
+            <div class="radio-group"> 
+                <input type="radio" id="yes" 
+                       name="satisfy" value="yes" checked> 
+                <label for="yes"  style="color:#1bdee0;">Yes</label> 
+  
+                <input type="radio" id="no" 
+                       name="satisfy" value="no"> 
+                <label for="no" style="color:#1bdee0;">No</label> 
+            </div> 
+  
+            <label for="msg" style="color:#1bdee0;"> 
+                <i class="fa-solid fa-comments" 
+                   style="margin-right: 3px;"></i> 
+                Write your Suggestions: 
+            </label> 
+            <textarea id="msg" name="msg" 
+                      rows="4" cols="10" required> 
+            </textarea> 
+            <button type="submit"  style="color:#1bdee0;"><a href="feed.html">
+                Submit 
+          </a>  </button> 
+        </form> 
+    </div> 
+</body> 
+  
+</html>

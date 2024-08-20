@@ -1,0 +1,725 @@
+
+<html>
+<style>
+ :root {
+  --red: #ef233c;
+  --darkred: #c00424;
+  --platinum: #e5e5e5;
+  --black: #2b2d42;
+  --white: #fff;
+  --thumb: #edf2f4;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 16px / 24px "Rubik", sans-serif;
+  color: var(--black);
+  background: var(--platinum);
+  margin: 50px 0;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 1em;
+}
+
+.cards {
+  display: flex;
+  padding: 25px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--red);
+}
+
+.card .card-title {
+  font-size: 20px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+}
+
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--darkred);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 1;
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
+}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+// Developed by http://grohit.com/
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  font-family: Hack, monospace;
+}
+
+div {
+  color: #727272;
+  text-align: center;
+}
+
+p {
+  margin: 16px;
+  font-size: 96px;
+  color: #ccc;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 1s ease-in-out;
+  position: relative;
+
+  &::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+nav {
+  margin: 25px;
+  background: #f9f9f9;
+  padding: 4px;
+  .menuItems {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin: 20px;
+
+      a {
+        text-decoration: none;
+        color: #8f8f8f;
+        font-size: 24px;
+        font-weight: 400;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
+
+        &::before {
+          content: attr(data-item);
+          transition: 0.5s;
+          color: #8254ff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 0;
+          overflow: hidden;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+// Developed by http://grohit.com/
+footer {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  background-color: #f1f1f1;
+  color: #000000;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid;
+
+    &:hover {
+      border-bottom: 1px transparent;
+    }
+  }
+}
+</style>
+<body style="background-image: url('https://wallpaperaccess.com/full/240306.jpg');">
+<nav>
+    <ul class="menuItems" style="background-color:#f8ff9b;">
+	 <li><img src="https://tse1.mm.bing.net/th?id=OIP.4-rWJglxHNERLtnj9QiWOAHaHa&pid=Api&P=0&h=180" height="50%" width="50%" ></li>
+      <li><a href='index.html' data-item=''>Home</a></li>
+      <li><a href='about1.html' data-item=''>Login</a></li>
+      <li><a href='shop.html' data-item=''>Shopkart</a></li>
+      <li><a href='form.html' data-item=''>Feedback</a></li>
+      <li><a href='contact.html' data-item=''>Contact</a></li>
+	
+    </ul>
+  </nav>
+<div class="container">
+  <h1 align="center">Gelato flavours</h1><br>
+  <ul class="cards">
+    <li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.18SufpCxg3fw27WesMPm1AHaE8&pid=Api&P=0&h=180" style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.LEl9jQnCKkrudjJmeaLD-gHaEs&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://www.askchefdennis.com/wp-content/uploads/2011/10/Strawberry-gelato-5-1024x683.jpg"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://www.sidechef.com/recipe/a3b228d7-975f-4fda-a718-d20e6db3936a.jpeg?d=1408x1120"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Soft serve flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://skinnyms.com/wp-content/uploads/2014/05/Vanilla-Soft-Serve-Ice-Cream-1-736x490.jpg"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.TENRKDZTc-ld0nECbLfFkgHaFj&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.IyeBF1dw1ovFPSnJzCB7DwAAAA&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.v-i8pu1Hna06ShsARu8LDQHaE6&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Sorbetes flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.xFR8D-KG8FSK5gdFoyPEdwHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.yj19LusTB5SF1v3Z_kN0NgHaEr&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.XK9osk8n9cE0JrGlLqsn_AHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.L6sUTMV2XKXbr7DE5DMwVQHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Dondurma flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.erGH0MSt9tPRcoXkSbnZhwHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.KVLrTnlrj0-OwknqeuxNwgHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse3.mm.bing.net/th?id=OIP.3-RLPXDxeUSrqdDFVlw1vAHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://i.pinimg.com/originals/09/e2/ba/09e2ba0218e07baac056504dc95427f2.jpg"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">I tim pad flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.mfbPFKOnHW0xPLQyLMpP8wHaFF&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse3.mm.bing.net/th?id=OIP.fiSpgwZ_BJ8SU4fXU71SUgHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.Q0-oGqyEqRz6VqQXhkcc-wAAAA&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.dHNKzIHatLaQPrDOIjHKkgHaFs&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Spaghettieis flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.6-eBWCswu8--Io5AaTgeuAHaFO&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse3.mm.bing.net/th?id=OIP.6lDMnVqnPsSHRwVpPeT3NAHaE6&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.3Ggzsi7bnxzUzlvncLvPDQHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse3.mm.bing.net/th?id=OIP.HBDbuvPCE_aWQOch3FckiQHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Halvah flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.RMDbrMFN9bgCEvHEIYg3KAHaFK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse3.mm.bing.net/th?id=OIP.xGmkZN3sjCdTH0XiCOvTbgHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse4.explicit.bing.net/th?id=OIP.MuqJ11XhC1nWndgL0RK-_wHaE8&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.OQU8y_7GNqFlFCd6-4LWyQHaGA&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Paletas flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse1.mm.bing.net/th?id=OIP.g46IZAjz7M0BOzndB8QG0AHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.XH_kUJNTFEIyIcBcqLKw3wHaD4&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.1lq_k4Kz_d_ORihosC9_1AHaFH&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.1JeAwcqR4-h7PiDL7lVXwwHaEK&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+	<div class="container">
+	<h1 align="center">Glace flavours</h1><br>
+	 <ul class="cards">
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Vanilla</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.3RXWu5XGPt2xlQAhI6LpeQHaD2&pid=Api&P=0&h=180"  style="width:120%">
+		 <br>
+		 <br>
+		  <br>
+		 <br>
+		  <br>
+		 <br>
+        </div>
+      </div>
+	  
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Chocolate</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.BAb0yn2nak7KwnzaUp0k1AHaFj&pid=Api&P=0&h=180"  style="width:120%">
+		  <br>
+		 <br>
+		  <br>
+		 <br>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Strawberry</h3>
+        <div class="card-content">
+		 <img src="https://tse4.mm.bing.net/th?id=OIP.p-wplXNQ9QOWet5unux6cQHaHa&pid=Api&P=0&h=180"  style="width:120%">
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	<li class="card">
+      <div>
+        <h3 class="card-title" align="center">Butterscotch</h3>
+        <div class="card-content">
+		 <img src="https://tse2.mm.bing.net/th?id=OIP.nqBLyHQU2qnYumDkYFlHsQHaE7&pid=Api&P=0&h=180"  style="width:120%">
+		  <br>
+		 <br> <br>
+		 <br>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link"><button>Buy now</button></a>
+      </div>
+    </li>
+	</div>
+</body>
+</html>
